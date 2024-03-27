@@ -1,5 +1,27 @@
 # 202030215 서민석
 
+# 3월 27일
+## 1. JSX (JavaScript Syntax eXtension) 란?
+```
+JSX(JavaScript Syntax eXtension)는 JavaScript를 확장한 문법이다.
+JSX는 리액트로 프로젝트를 개발할 때 사용되므로 공식적인 자바스크립트 문법은 아님.
+브라우저에서 실행하기 전에 바벨을 사용하여 일반 자바스크립트 형태의 코드로 변환된다.
+```
+* JSX의 역할
+    * JSX는 내부적으로 XML/HTML 코드를 자바스크립트로 변환함.
+    * React가 createElement함수를 사용하여 자동으로 자바스크립트로 변환함.
+    * 만일 js로 작업할 경우 직접 createElement함수를 사용해야 함.
+    * 앞으로 설명하는 코드를 보면 알 수 있지만 결국 JSX는 가독성을 높여주는 역할을 한다.
+
+* 장점
+    * 코드가 <span style="color:orange">간결</span>해 짐.
+    * <span style="color:orange">가독성</span>이 향상 됨.
+    * injection Attack이라 불리는 해킹 방법을 방어함으로써 보안에 강함.
+
+* JSX 사용법
+    * <span style="color:orange">모든 자바 스크립트 문법</span>을 지원함.
+    * 자바스크립트 문법에 <span style="color:orange">XML과 HTML을 섞어서</span> 사용함.
+    * 만일 HTML이나 XML에 자바스크립트 코드를 사용하고 싶으면 <span style="color:orange">{}괄호</span>를 사용함.
 # 3월 20일
 > ## 1. React
 ## 1-1. 리액트란?
@@ -35,6 +57,7 @@
     * 자바스크립트를 공부한 경우 빠르게 학습할 수 있음.
 * 높은 상태 관리 복잡도
     * state, component life cycle 등의 개념이 있으나 그렇게 어렵진 않음.
+
 # 3월 13일
 > ## 1. 마크다운
 마크다운(markdown)은 일반 텍스트 기반의 경량 마크업 언어다. 일반 텍스트로 서식이 있는 문서를 작성하는 데 사용되며, 일반 마크업 언어에 비해 문법이 쉽고 간단한 것이 특징이다. HTML과 리치 텍스트(RTF) 등 서식 문서로 쉽게 변환되기 때문에 응용 소프트웨어와 함께 배포되는 README 파일이나 온라인 게시물 등에 많이 사용된다.
@@ -74,3 +97,4 @@ H2 태그는 H1 다음으로 제목에 사용되는 제목이다.
 ```
 ~~취소선~~
 ```
+
