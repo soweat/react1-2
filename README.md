@@ -178,11 +178,32 @@ React.createElement(
     * 컴포넌트는 자바스크립트 함수와 입력과 출력이 있다는 면에서 유사함.
     * 다만 입력은 Props가 담당하고 출력은 리액트 엘리먼트 형태로 출력됨.
     * 엘리먼트를 필요한만큼 만들어 사용한다는 면에서 객체 지향의 개념과 비슷함.
+***
 * Props의 개념
     * Props는 Prop(Property: 속성, 특성)의 준말임.
     * 이 Props가 바로 컴포넌트의 속성임.
     * 컴포넌트에 어떤 속성, Props를 넣느냐에 따라 속성이 다른 엘리먼트가 출력 됨.
     * Props는 컴포넌트에 전달 할 다양한 정보를 담고 있는 자바스크립트 객체임.
+* Props의 특징
+    * 읽기 전용이며 변경할 수 없음.
+    * 속성이 다른 엘리먼트를 생성하려면 새로운 Props를 컴포넌트에 전달하면 됨.
+## 7. Pure 함수 / Impure 함수
+```js
+// pure 함수
+// input을 변경하지 않으며 같은 input에 대해서 항상 같은 output을 리턴
+function sum(a, b) {
+    return a + b;
+}
+```
+```js
+// impure 함수
+// input을 변경함.
+function withdraw(account, amount) {
+    account.total -= amount;
+}
+```
+* Pure함수는 인수로 받은 정보가 함수 내부에서도 변하지 않는 함수임.
+* Impure함수는 인수로 받은 정보가 함수 내부에서 변하는 함수임.
 # 3월 20일
 ## 1. React
 ```ruby
