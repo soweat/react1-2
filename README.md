@@ -12,16 +12,6 @@ JSX는 리액트로 프로젝트를 개발할 때 사용되므로 공식적인 �
     * React가 createElement함수를 사용하여 자동으로 자바스크립트로 변환함.
     * 만일 js로 작업할 경우 직접 createElement함수를 사용해야 함.
     * 앞으로 설명하는 코드를 보면 알 수 있지만 결국 JSX는 가독성을 높여주는 역할을 한다.
-
-* 장점
-    * 코드가 <span style="color:orange">간결</span>해 짐.
-    * <span style="color:orange">가독성</span>이 향상 됨.
-    * injection Attack이라 불리는 해킹 방법을 방어함으로써 보안에 강함.
-
-* JSX 사용법
-    * <span style="color:orange">모든 자바 스크립트 문법</span>을 지원함.
-    * 자바스크립트 문법에 <span style="color:orange">XML과 HTML을 섞어서</span> 사용함.
-    * 만일 HTML이나 XML에 자바스크립트 코드를 사용하고 싶으면 <span style="color:orange">{}괄호</span>를 사용함.
 ```js
 const name = '소플';
 const element = <h1>안녕, {name}</h1>
@@ -31,6 +21,15 @@ ReactDOM.render(
     document.getElementById('root')
 );
 ```
+* 장점
+    * 코드가 <span style="color:orange">간결</span>해 짐.
+    * <span style="color:orange">가독성</span>이 향상 됨.
+    * injection Attack이라 불리는 해킹 방법을 방어함으로써 보안에 강함.
+
+* JSX 사용법
+    * <span style="color:orange">모든 자바 스크립트 문법</span>을 지원함.
+    * 자바스크립트 문법에 <span style="color:orange">XML과 HTML을 섞어서</span> 사용함.
+    * 만일 HTML이나 XML에 자바스크립트 코드를 사용하고 싶으면 <span style="color:orange">{}괄호</span>를 사용함.
 * Book.jsx
 ```js
 import React from "react";
