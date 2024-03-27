@@ -44,6 +44,21 @@ export default function Book(props) {
     );
 }
 ```
+* Library
+```js
+import React from "react";
+import Book from "./book";
+
+export default function Library() {
+    return (
+        <div>
+            <Book name="처음 만난 파이썬" numOfPage={300} />
+            <Book name="처음 만난 AWS" numOfPage={400} />
+            <Book name="처음 만난 리액트" numOfPage={500} />
+        </div>
+    );
+}
+```
 ## 엘리먼트에 대해 알아보기
 * 엘리먼트의 정의
     * 엘리먼트는 리액트 앱을 구성하는 요소를 의미
