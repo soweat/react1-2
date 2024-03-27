@@ -43,7 +43,7 @@ export default function Book(props) {
     );
 }
 ```
-* Library
+* Library.jsx
 ```js
 import React from "react";
 import Book from "./book";
