@@ -22,6 +22,15 @@ JSX는 리액트로 프로젝트를 개발할 때 사용되므로 공식적인 �
     * <span style="color:orange">모든 자바 스크립트 문법</span>을 지원함.
     * 자바스크립트 문법에 <span style="color:orange">XML과 HTML을 섞어서</span> 사용함.
     * 만일 HTML이나 XML에 자바스크립트 코드를 사용하고 싶으면 <span style="color:orange">{}괄호</span>를 사용함.
+```
+const name = '소플';
+const element = <h1>안녕, {name}</h1>
+
+ReactDOM.render(
+    element,
+    document.getElementById('root')
+);
+```
 # 3월 20일
 > ## 1. React
 ## 1-1. 리액트란?
