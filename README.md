@@ -75,12 +75,13 @@ ReactDOM.render(
     * 복잡한 컴포넌트를 쪼개서 여러 개의 컴포넌트로 나눌 수 있음.
     * 큰 컴포넌트에서 일부를 추출하여 새로운 컴포넌트를 만드는 것
     * 실무에서는 처음부터 1개의 컴포넌트에 하나의 기능만 사용하도록 설계하는 것이 좋음.
-## 6. State란?
+## 6. State
 ```ruby
 State는 리액트 컴포넌트의 상태를 의미함.
 ```
-* 상태의 의미는 컴포넌트의 데이터(변경가능한 데이터)를 의미함.
-* State가 변하면 다시 렌더링이 되기 때문에 렌더링과 관련된 값만 state에 포함시켜야 함.
+* State란?
+    * 상태의 의미는 컴포넌트의 데이터(변경가능한 데이터)를 의미함.
+    * State가 변하면 다시 렌더링이 되기 때문에 렌더링과 관련된 값만 state에 포함시켜야 함.
 ***
 ### State의 특징
 * 리액트 만의 특별한 형태가 아닌 자바스크립트의 객체일 뿐임.
@@ -91,12 +92,13 @@ State는 리액트 컴포넌트의 상태를 의미함.
 ```ruby
 생면주기는 컴포넌트의 생성 시점, 사용 시점, 종료 시점을 나타냄.
 ```
-* constructor가 실행되면서 컴포넌트가 생성됨.
-* 생성 직후 ComponentDidMount() 함수가 호출됨.
-* 컴포넌트가 소멸하기 전까지 여러번 렌더링 함.
-* 렌더링은 props, setState(), forceUpdate()에 의해 상태가 변경되면 이루어짐.
-* 렌더링이 끝나면 componentDinUpdate() 함수가 호출됨.
-* 컴포넌트가 언마운트 되면 componetWillUnmount()함수가 호출됨.
+* 생명주기 특징
+    * constructor가 실행되면서 컴포넌트가 생성됨.
+    * 생성 직후 ComponentDidMount() 함수가 호출됨.
+    * 컴포넌트가 소멸하기 전까지 여러번 렌더링 함.
+    * 렌더링은 props, setState(), forceUpdate()에 의해 상태가 변경되면 이루어짐.
+    * 렌더링이 끝나면 componentDinUpdate() 함수가 호출됨.
+    * 컴포넌트가 언마운트 되면 componetWillUnmount()함수가 호출됨.
 # 3월 27일
 ## 1. JSX (JavaScript Syntax eXtension) 란?
 ```ruby
