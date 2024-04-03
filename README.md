@@ -1,5 +1,70 @@
 # 202030215 서민석
 
+# 4월 3일
+## 1. Props 사용법
+* JSX에서는 key-value쌍으로 Props를 구성함.
+```js
+function App(props) {
+    return (
+        <Profile
+            name="소플"
+            introduction="안녕하세요, 소플입니다."
+            viewCount={1500}
+            />
+    );
+}
+```
+* 위 코드는 Profile 컴포넌트로 name, introduction, viewCount Props를 전달한다.
+* 이때 전달되는 props는 다음과 같은 자바스크립트 객체임.
+```js
+function App(props) {
+    return (
+        <Layout
+            width={2560}
+            height={1440}
+            header={
+                <Header title="소플의 블로그입니다." />
+            }
+        />
+    );
+}
+```
+* JSX에서는 중괄호를 사용하면 JS 코드를 넣을 수 있음.
+* Props를 통해 value를 할당 할 수도 있고, 직접 중괄호를 사용하여 할당할 수도 있음.
+***
+
+```js
+React.createElement(
+    type,
+    [props],
+    [...children]
+)
+```
+* JSX를 사용하지 않는 경우 props의 전달 방법은 createElement()함수를 사용해야 함
+## 2. 컴포넌트 만들기
+* 리액트 초기 버전을 사용할 때는 클래스형 컴포넌트를 주로 사용했음.
+* 함수형 컴포넌트를 주로 사용함.
+* 예전에 작성된 코드나 문서들이 클래스형 컴포넌트를 사용하고 있기에 클래스형 컴포넌트와 컴포넌트의 생명주기에 관해서도 공부해 두어야 함.
+## 3. 컴포넌트의 종류
+* 함수형 컴포넌트
+    * Welcome컴포넌트는 props를 받아, 받은 props중 name키의 값을 "안녕,"뒤에 넣어 반환함.
+* 클래스형 컴포넌트
+    * Welcome컴포넌트는 React.Component class로부터 상속을 받아 선언함.
+## 컴포넌트 이름 짓기
+* 이름은 항상 대문자로 시작해야함. 소문자로 시작하는 컴포넌트는 DOM 태그로 인식하기 때문.
+* 컴포넌트 파일 이름과 컴포넌트 이름은 같게 해야 함.
+## 컴포넌트 렌더링
+```js
+function Welcome(props) {
+    return <h1>안녕, {props.name}</h1>;
+}
+
+const element = <Welcome name="인제" />;
+ReactDOM.render(
+    element,
+    document.getElementById('root')
+);
+```
 # 3월 27일
 ## 1. JSX (JavaScript Syntax eXtension) 란?
 ```ruby
