@@ -98,6 +98,7 @@ const memoizedCallback = useCallback(
 * useRef() 훅은 바로 이 레퍼런스 객체를 반환함.
 * 레퍼런스 객체에는 .current라는 속성이 있는데, 이것은 현재 참조하고 있는 엘리먼트를 의미함.
 
+***
 ### 금일 실습
 * FocusButton.jsx
 ```js
