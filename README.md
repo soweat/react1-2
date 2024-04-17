@@ -78,6 +78,124 @@ const memoizedValue = useMemo(
     () => computeExpensiveValue(a, b)
 );
 ```
+***
+### useCallback
+```js
+const memoizedCallback = useCallback(
+    () => {
+        doSomething(의존성 변수1, 의존성 변수2);
+    },
+    [의존성 변수1, 의존성 변수2]
+);
+```
+* useCallback() 훅은 useMemo()와 유사한 역할을 함.
+* 차이점은 값이 아닌 함수를 반환한다는 점
+* 의존성 배열을 파라미터로 받는 것은 useMemo와 동일함.
+* 파라미터로 받은 함수를 콜백이라고 부름.
+### useRef
+* useRef() 훅은 레퍼런스를 사용하기 위한 훅임.
+* 레퍼런스란 특정 컴포넌트에 접근할 수 있는 객체를 의미함.
+* useRef() 훅은 바로 이 레퍼런스 객체를 반환함.
+* 레퍼런스 객체에는 .current라는 속성이 있는데, 이것은 현재 참조하고 있는 엘리먼트를 의미함.
+
+### 금일 실습
+* FocusButton.jsx
+```js
+// FocusButton.jsx
+import { useRef } from "react";
+
+export default function FocusButton (props) {
+    const inputElem = useRef(null)
+
+    const onButtonClock = () => {
+        inputElem.current.focus()
+    }
+    return (
+        <>
+        <input ref={inputElem} type="text" />
+        <button onClick={onButtonClock}>Focus the input</button>
+        </>
+    )
+}
+```
+* Counter.jsx
+```js
+// Counter.jsx
+import React, { useEffect, useState} from "react"
+
+export default function Counter(props) {
+    // let counter = 0
+    const [count, setCount] = useState(0)
+
+    useEffect(()=>{
+        document.title = `총 ${count}번 클릭했습니다.`
+    })
+
+    return (
+        <>
+            <p>총 {count}</p>
+            <button onClick={() => setCount(count+1)}>
+                클릭
+            </button>
+        </>
+    )
+}
+```
+* WithCounter.jsx
+```js
+// WithCounter.jsx
+import React, { useEffect, useState} from "react"
+
+export default function WithCounter(props) {
+    // let counter = 0
+    const [count, setCount] = useState(100)
+
+    useEffect(()=>{
+        document.title = `총 ${count}번 클릭했습니다.`
+    })
+
+    const [isOnline, setIsOnline] = useState(null)
+    useEffect(() => {
+        ServerAPI.subscribeUserStatus(props.user.id, handleStatusChange)
+    return () => {
+        ServerAPI.subscribeUserStatus(props.user.id, handleStatusChange)
+    }
+})
+
+// function handleStatusChange{status} {
+//     setIsOnline.status.isOnline
+// }
+
+    return (
+        <>
+            <p>총 {count}</p>
+            <button onClick={() => setCount(count+1)}>
+                클릭
+            </button>
+        </>
+    )
+}
+```
+* MeasureEx.jsx
+```js
+// MeasureEx.jsx
+import { useCallback, useState } from "react";
+
+export default function MeasureEx(props) {
+    const [height, setHeight] = useState(0)
+    const measureRef = useCallback(node => {
+        if(node != null) {
+        setHeight(node.getBoundingClientRect().height)
+    }
+    }, [])
+    return(
+    <>
+        <h1 ref={measureRef}>안녕, 리액트</h1>
+        <h2>위 헤더의 높이는 {Math.round(height)}px 입니다.</h2>
+    </>
+    )
+}
+```
 # 4월 3일
 ## 1. Props 사용법
 * JSX에서는 key-value쌍으로 Props를 구성함.
