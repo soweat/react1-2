@@ -69,6 +69,15 @@ const memoizedValue = useMemo(
 );
 ```
 * useEffect에서 실행되어야 할 사이드 이펙트 같은 것임.
+
+* 다음 코드와 같이 의존성 배열을 넣지 않을 경우, 렌더링이 일어날 때마다 매번 함수가 실행됨.
+* 따라서 의존성 배열을 넣지 않는 것은 의미가 없음.
+* 만약 빈 배열을 넣게 되면 컴포넌트 마운트 시에만 함수가 실행 됨.
+```js
+const memoizedValue = useMemo(
+    () => computeExpensiveValue(a, b)
+);
+```
 # 4월 3일
 ## 1. Props 사용법
 * JSX에서는 key-value쌍으로 Props를 구성함.
