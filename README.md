@@ -70,10 +70,10 @@ export default function UserListItem (props) {
     )
 }
 ```
-### 커스텀 훅 추출하기
-* use로 시작하는 훅을 만들고, 내부에서 다른 훅을 호출하면 됨.
-* 이름은 use로 시작하도록 해야 함. 그렇지 않으면 다른 훅을 불러올 수 없음.
-* useUserStatus() 훅의 목적은 ???
+* 커스텀 훅 추출
+    * use로 시작하는 훅을 만들고, 내부에서 다른 훅을 호출하면 됨.
+    * 이름은 use로 시작하도록 해야 함. 그렇지 않으면 다른 훅을 불러올 수 없음.
+* useUserStatus.jsx
 ```js
 import { useState, useEffect } from "react"
 
