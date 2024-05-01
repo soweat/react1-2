@@ -1,5 +1,97 @@
 # 202030215 서민석
 
+# 5월 1일
+### 훅의 규칙
+* 훅의 두가지 규칙
+
+    * 첫번째 규칙
+        * 무조건 최상위 레벨에서만 호출해야함.
+        * 따라서 반복문이나 조건문 또는 중첩된 함수들 안에서 훅을 호출하면 안됨.
+        * 이 규칙에 따라서 훅은 컴포넌트가 렌더링 될 때마다 같은 순서로 호출되어야 함.
+    * 두번째 규칙
+        * 함수형 컴포넌트에서만 훅을 호출해야 함.
+        * 따라서 일반 자바스크립트 함수에서 훅을 호출하면 안됨.
+        * 훅은 함수형 컴포넌트 혹은 직접 만든 커스텀 훅에서만 호출할 수 있음.
+* 페이지 230의 코드는 조건에 따라 호출되기 때문에 잘못된 코드임.
+```js
+function MyComponent(props){
+    const [name, setName] = useState('inje');
+
+    if (name !== '') {
+        useEffect(() => {
+            ...
+        });
+    }
+    ...
+}
+```
+* UserStatus.jsx
+```js
+import { useState, useEffect } from "react"
+
+export default function UserStatus (props) {
+    const [isOnline, setIsOnline] = useState(null)
+
+    useEffect(() => {
+        function handleStatusChange(status) {
+            setIsOnline(status, isOnline)
+        }
+        ServerAPI.subscribeUserStatus(props.user.id, handleStatusChange)
+        return () => {
+            ServerAPI.unsubscribeUserStatus(props.user.id, handleStatusChange)
+        }
+    })
+    if (isOnline === null) {
+        return '대기중...'
+    }
+    return isOnline ? '온라인' : '오프라인'
+}
+```
+* UserListItem.jsx
+```js
+import { useState, useEffect } from "react"
+
+export default function UserListItem (props) {
+    const [isOnline, setIsOnline] = useState(null)
+
+    useEffect(() => {
+        function handleStatusChange(status) {
+            setIsOnline(status, isOnline)
+        }
+        ServerAPI.subscribeUserStatus(props.user.id, handleStatusChange)
+        return () => {
+            ServerAPI.unsubscribeUserStatus(props.user.id, handleStatusChange)
+        }
+    })
+    return (
+        <li style={{ color : isOnline ? 'green' : 'black'}}>
+            {props.user.name}
+        </li>
+    )
+}
+```
+### 커스텀 훅 추출하기
+* use로 시작하는 훅을 만들고, 내부에서 다른 훅을 호출하면 됨.
+* 이름은 use로 시작하도록 해야 함. 그렇지 않으면 다른 훅을 불러올 수 없음.
+* useUserStatus() 훅의 목적은 ???
+```js
+import { useState, useEffect } from "react"
+
+export default function useUserStatus (props) {
+    const [isOnline, setIsOnline] = useState(null)
+
+    useEffect(() => {
+        function handleStatusChange(status) {
+            setIsOnline(status, isOnline)
+        }
+        ServerAPI.subscribeUserStatus(props.user.id, handleStatusChange)
+        return () => {
+            ServerAPI.unsubscribeUserStatus(props.user.id, handleStatusChange)
+        }
+    })
+    return isOnline
+}
+```
 # 4월 17일
 ## 훅(Hook)
 ```rb
@@ -577,8 +669,4 @@ function withdraw(account, amount) {
 * ~~취소선~~
 ```
 ~~취소선~~
-<<<<<<< HEAD
 ```
-=======
-```
->>>>>>> 129801cbda01dc37e01565ebd970a9d92f9461dc
