@@ -137,7 +137,24 @@ export default function Accomodate (props) {
     )
 }
 ```
-
+### 이벤트 처리하기
+* DOM에서 클릭 이벤트를 처리하는 예제 코드
+```html
+<button onlick="activate()">
+    Activate
+</button>
+```
+* React에서 클릭 이벤트 처리하는 예제 코드
+```jsx
+<button onClick={activate}>
+    Activate
+</button>
+```
+* 둘의 차이점
+    * 이벤트 이름이 onclick에서 onClick으로 변경(Camel case)
+    * 전달하려는 함수는 문자열에서 함수 그대로 전달
+* 이벤트가 발생했을때 해당 이벤트를 처리하는 함수를 이벤트 핸들러(Event Handler) 라고 함.
+* 이벤트가 발생하는 것을 계속 듣고 있다는 의미로 이벤트 리스너(Event Listener)라고 부르기도 함.
 # 4월 17일
 ## 훅(Hook)
 ```rb
