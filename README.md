@@ -92,6 +92,52 @@ export default function useUserStatus (props) {
     return isOnline
 }
 ```
+* useCounter.jsx
+```js
+import { useState } from "react";
+
+export default function (initialValue) {
+    const [count, setCount] = useState(initialValue)
+
+    const increaseCount = () => setCount((count) => count +1)
+    const decreaseCount = () => setCount((count) => Math.max(count-1, 0))
+
+    return[count, increaseCount, decreaseCount]
+}
+```
+* Accomodate.jsx
+```js
+import { useState, useEffect } from "react";
+import useCounter from "./useCounter";
+
+const MAX_CAPACITY = 10
+
+export default function Accomodate (props) {
+    const [isFull, setIsFull] = useState(false)
+    const [count, increaseCount, decreaseCount] = useCounter(0)
+
+    useEffect(() => {
+        console.log("==========");
+        console.log("useEffect() is called")
+        console.log(`isFull: ${isFull}`)
+    })
+
+    useEffect(() => {
+        setIsFull(count >= MAX_CAPACITY)
+        console.log(`Current count value: ${count}`)
+    }, [count])
+
+    return (
+        <div>
+            <p>{`총 ${count}명 수용했습니다.`}</p>
+            <button onClick={increaseCount} disabled={isFull}>입장</button>
+            <button onClick={decreaseCount}>퇴장</button>
+            {isFull && <p style={{color: 'red'}}>정원이 가득 찼습니다.</p>}
+        </div>
+    )
+}
+```
+
 # 4월 17일
 ## 훅(Hook)
 ```rb
