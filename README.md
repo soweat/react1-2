@@ -25,6 +25,8 @@ export default function Toggle(props) {
 
 ```js
 <button onClick = {(event) => this.deleteItem(id, event)}>삭제하기</button>
+```
+```js
 <button onClick={this.deleteItem.bind(this, id)}>삭제하기</button>
 ```
 * 위 코드는 모두 동일한 역할을 하지만 하나는 화살표 함수, 다른 하나는 bind를 사용했음.
