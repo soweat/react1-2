@@ -1,5 +1,38 @@
 # 202030215 서민석
 
+# 5월 8일
+* Toggle.jsx
+```js
+import { useState } from "react"
+
+export default function Toggle(props) {
+    const [isToggleOn, setIsToggleOn] = useState(true)
+
+    const handleClick = () => {
+        setIsToggleOn((isToggleOn) => !isToggleOn)
+    }
+
+    return(
+        <button onClick={handleClick}>
+            {isToggleOn ? '켜짐' : '꺼짐'}
+        </button>
+    )
+}
+```
+***
+### Arguments 전달하기
+* 함수를 정의할 때는 파라미터(Parameter) 혹은 매개변수, 함수를 사용할 때는 Argument 혹은 인수라고 부른다.
+
+```js
+<button onClick = {(event) => this.deleteItem(id, event)}>삭제하기</button>
+<button onClick={this.deleteItem.bind(this, id)}>삭제하기</button>
+```
+* 위 코드는 모두 동일한 역할을 하지만 하나는 화살표 함수, 다른 하나는 bind를 사용했음.
+* event라는 매개변수는 리액트의 이벤트 객체를 의미함.
+* 두 방법 모두 첫번째 매개변수는 id이고 두번째 매개변수로 event가 전달됨.
+* 첫번째 코드는 명시적으로 event를 매개변수로 넣어 주었고, 두번째 코드는 id 이후 두번째 매개변수로 event가 자동 전달됨.(이 방법은 클래스형에서 사용하는 방법임.)
+
+
 # 5월 1일
 ### 훅의 규칙
 * 훅의 두가지 규칙
