@@ -67,8 +67,8 @@ function Greeting(props) {
 ### 컴포넌트 렌더링 막기
 * 컴포넌트를 렌더링하고 싶지 않을 때에는 null을 리턴함.
 ```js
-function WaringBanner(props) {
-    if(!props.waring) {
+function WarningBanner(props) {
+    if(!props.warning) {
         return null;
     }
 
