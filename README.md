@@ -34,7 +34,36 @@ export default function Toggle(props) {
 * 두 방법 모두 첫번째 매개변수는 id이고 두번째 매개변수로 event가 전달됨.
 * 첫번째 코드는 명시적으로 event를 매개변수로 넣어 주었고, 두번째 코드는 id 이후 두번째 매개변수로 event가 자동 전달됨.(이 방법은 클래스형에서 사용하는 방법임.)
 
+### 조건부 렌더링
+```js
+function Greeting(props) {
+    const isLoggedIn = props.isLoggedIn;
+    if (isLoggedIn) {
+        return <UserGreeting>;
+    }
+    return <GuestGreeting>;
+}
+```
+* props로 전달 받은 isLoggedIn이 true면 <UserGreeting/>을, false면<GusetGreeting/>를 return함.
+* 이와 같은 렌더링을 조건부 렌더링이라고 함.
 
+### 엘리먼트 변수
+```rb
+렌더링해야 될 컴포넌트를 변수처럼 사용하는 방법
+```
+
+### 인라인 조건
+```rb
+필요한 곳에 조건문을 넣어 사용하는 방법
+```
+* 인라인 if
+    * if문을 직접 사용하지 않고, 동일한 효과를 내기 위해 && 논리 연산자 사용
+    * &&는 and연자로 모든 초건이 참일때만 참이 됨.
+    * 첫번째 조건이 거짓이면 두번째 조건은 판단하지 않음. → 단축평가
+    * 판단만 하지 않는 것이며 결과 값은 그대로 리턴됨.
+* 인라인 if-else
+    * 삼항 연산자를 사용
+    * 문자열이나 엘리먼트를 넣어서 사용할 수도 있음.
 # 5월 1일
 ### 훅의 규칙
 * 훅의 두가지 규칙
