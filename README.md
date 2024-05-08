@@ -64,6 +64,19 @@ function Greeting(props) {
 * 인라인 if-else
     * 삼항 연산자를 사용
     * 문자열이나 엘리먼트를 넣어서 사용할 수도 있음.
+### 컴포넌트 렌더링 막기
+* 컴포넌트를 렌더링하고 싶지 않을 때에는 null을 리턴함.
+```js
+function WaringBanner(props) {
+    if(!props.waring) {
+        return null;
+    }
+
+    return (
+        <div>경고!</div>
+    );
+}
+```
 # 5월 1일
 ### 훅의 규칙
 * 훅의 두가지 규칙
