@@ -1,5 +1,134 @@
 # 202030215 서민석
 
+# 5월 22일
+
+## 리스트와 키
+
+* NumberList.jsx
+```jsx
+export default function NumberList() {
+    const numbers = [1, 2, 3, 4, 5]
+
+    const todos = [
+        { id: 1, name: "홍길동1" },
+        { id: 1, name: "홍길동2" },
+        { id: 1, name: "홍길동3" },
+        { id: 1, name: "홍길동4" },
+        { id: 1, name: "홍길동5" },
+    ]
+
+    const listItems = numbers.map((numbers) =>
+        <li key={numbers.toString()}>{numbers}</li>
+    )
+    const todoItems = todos.map((todo)  =>
+        <li key={todo.id}>{todo.name}</li>
+    )
+    const indexItems = todos.map((todo,index) =>
+        <li key={index}>{todo.name}</li>
+    )
+    return (
+        <>
+            <ul>{listItems}</ul>
+            <ul>{todoItems}</ul>
+            <ul>{indexItems}</ul>
+        </>
+    )
+}
+```
+* 리스트와 키에 대해 알아보기
+    * 리스트에서의 키는 리스트에서 아이템을 구별하기 위한 고유한 문자열임.
+    * 이 키는 리스트에서 어떤 아이템이 변경, 추가 또는 제거되었는지 구분하기 위해 사용
+    * 키는 같은 리스트에 있는 엘리먼트 사이에서만 고유한 값이면 됨.
+
+```jsx
+const students = [
+    { name : "Inje"},
+    { name : "Steve"},
+    { name : "Bill"},
+    { name : "Left"},
+    { name : "Right"},
+]
+
+export default function AttendanceBook() {
+    return (
+        <ul>
+            {/* id를 키값으로 사용 */}
+            {students.map((student) => {
+                return <li key = {student.id}>{student.name}</li>
+            })}
+            {/* 포맷팅된 문자열을 키값으로 사용 */}
+            {students.map((student) => {
+                return <li key = {`id${student.id}`}>{student.name}</li>
+            })}
+        </ul>
+    )
+}
+```
+* 폼이란?
+```
+폼은 일반적으로 사용자로부터 입력을 받기위한 양식으로 많이 사용 됨.
+```
+
+* 제어 컴포넌트
+```
+제어 컴포넌트는 사용자가 입력한 값에 접근하고 제어할 수 있도록 해주는 컴포넌트
+```
+* NameForm.jsx
+```jsx
+import { useState } from "react";
+
+export default function NameForm() {
+    const [value, setValue] = useState('')
+
+    const handleChange = (e) => {
+        setValue(e.target.value)
+    }
+    const handleSubmit = (e) => {
+        alert('입력한 이름: ' + value)
+        e.preventDefault()
+    }
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <label>
+                이름:
+                <input type="text" value={value} onChange={handleChange}/>
+                <button type="submit">제출</button>
+            </label>
+        </form>
+    )
+}
+```
+* RequestForm.jsx
+```jsx
+import { useState } from "react";
+
+export default function RequestForm() {
+    const[value, setValue] = useState('요청사항을 입력하세요.')
+
+    const handleChange = (e) => {
+        setValue(e.target.value)
+    }
+    const handleSubmit = (e) => {
+        alert('요청사항 : ' + value)
+        e.preventDefault()
+    }
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <label>
+                요청사항 : 
+                <select value={value} onChange={handleChange} >
+                <option value="사과">사과</option>
+                <option value="바나나">바나나</option>
+                <option value="오렌지">오렌지</option>
+                </select>
+                <button type="submit">제출</button>
+            </label>
+        </form>
+    )
+}
+```
 # 5월 8일
 * Toggle.jsx
 ```js
