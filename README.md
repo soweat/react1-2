@@ -1,5 +1,64 @@
 # 202030215 서민석
 
+# 5월 29일
+
+### File input 태그
+```ruby
+File input 태그는 그 값이 읽기 전용이기 때문에 리액트에서는 비제어 컴포넌트가 된다.
+```
+
+* input Null Value
+    * 제어 컴포넌트에 value roop를 정해진 값으로 넣으면 코드를 수정하지 않는 한 입력 값을 바꿀 수 없음.
+    * 만약 value prop은 넣되 자유롭게 입력할 수 있게 만들고 싶다면 값을 undefined 또는 null을 넣어주면 됨.
+```js
+ReactDOM.render(<input value="hi" />, rootNode);
+
+setTimeout(function() {
+    ReactDOM.render(<input value={null} />, rootNode);
+}, 1000);
+```
+
+* SignUp.jsx
+```jsx
+import { useState } from "react";
+
+export default function SignUp() {
+    const [name, setName] = useState()
+    const [gender, setGender] = useState('남자')
+    const [document, setDocument] = useState()
+
+    const handleChangeName = (e) => {
+        setName(e.target.value)
+    }
+    const handleChangeGender = (e) => {
+        setGender(e.target.value)
+    }
+    const handleChangeDocument = (e) => {
+        setDocument(e.target.value)
+    }
+    const handleSubmit = (e) => {
+        alert(`이름 : ${name}, 성별 : ${gender}, 문서 : ${document}`)
+        e.preventDefault()
+    }
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <label>
+                이름 : 
+                <input type="text" value={name} onChange={handleChangeName} placeholder="이름을 입력해주세요." />
+            </label>
+            <label>
+                성별 : 
+                <select value ={gender} onChange={handleChangeGender}>
+                    <option value="남자">남자</option>
+                    <option value="남자">여자</option>
+                </select>
+            </label>
+            <button type="submit">제출</button>
+        </form>
+    )
+}
+```
 # 5월 22일
 
 ## 리스트와 키
