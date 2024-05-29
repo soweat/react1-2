@@ -26,6 +26,7 @@ export default function SignUp() {
     const [name, setName] = useState()
     const [gender, setGender] = useState('남자')
     const [document, setDocument] = useState()
+    const [haveBreakfast, setHaveBreakfast] = useState()
 
     const handleChangeName = (e) => {
         setName(e.target.value)
@@ -36,8 +37,11 @@ export default function SignUp() {
     const handleChangeDocument = (e) => {
         setDocument(e.target.value)
     }
+    const handleChangeHaveBreakfast = (e) => {
+        setHaveBreakfast(e.target.value.checked)
+    }
     const handleSubmit = (e) => {
-        alert(`이름 : ${name}, 성별 : ${gender}, 문서 : ${document}`)
+        alert(`이름 : ${name}, 성별 : ${gender}, 문서 : ${document}, 아침인사 : ${haveBreakfast}`)
         e.preventDefault()
     }
 
@@ -51,12 +55,33 @@ export default function SignUp() {
                 성별 : 
                 <select value ={gender} onChange={handleChangeGender}>
                     <option value="남자">남자</option>
-                    <option value="남자">여자</option>
+                    <option value="여자">여자</option>
                 </select>
+            </label>
+            <br />
+            <label>
+                document :
+                <textarea value = {document} onChange={handleChangeDocument} placeholder="문장을 입력해 주세요."></textarea>
+            </label>
+            <label>
+                아침식사 :
+                <input type="checkbox" check={haveBreakfast} onChange={handleChangeHaveBreakfast}
+                 />
             </label>
             <button type="submit">제출</button>
         </form>
     )
+}
+```
+* BoilingVerdict.jsx
+```js
+export default function BoilingVerdict(props) {
+    if(props.celsius >= 100) {
+        return <p>물이 끓습니다.</p>
+    }
+    else if(props.foo <= 0) {
+        return <p>물이 끓지 않습니다.</p>
+    }
 }
 ```
 # 5월 22일
