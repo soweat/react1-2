@@ -1,5 +1,13 @@
 # 202030215 서민석
 
+# 6월 5일
+
+### Shared State
+```ruby
+Shared state는 state의 공유를 의미
+```
+* 같은 부모 컴포넌트의 state를 자식 컴포넌트가 공유해서 사용하는 것
+
 # 5월 29일
 
 ### File input 태그
