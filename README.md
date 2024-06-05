@@ -105,6 +105,7 @@ export default function TemperatureInput(props) {
     )
 }
 ```
+![Alt text](image-1.png)
 * 정리
     * 상위 컴포넌트인 Calculator에서 온도와 단위를 state로 갖고
     * 두 개의 하위 컴포넌트는 각각 섭씨와 화씨로 변환된 온도와 단위, 그리고 온도를 업데이트 하기 위한 함수를 props로 갖고 있음.
