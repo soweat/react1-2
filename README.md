@@ -116,6 +116,30 @@ export default function TemperatureInput(props) {
 ```
 * 조합 방법에 따라 합성의 사용 기법은 다음과 같이 나눌 수 있음.
 #### Containment(담다, 포함하다, 격리하다)
+* FancyBorder
+```jsx
+export default function FancyBorder(props) {
+    return(
+        <div className={"FancyBorder" + props.color}>
+            {props.children}
+        </div>
+    )
+}
+```
+* WelcomeDialog
+```jsx
+import FancyBorder from "./FancyBorder";
+
+export default function WelcomeDialog() {
+    return(
+        <FancyBorder color="blue">
+            <h1 className="Dialog-title">어서 오세요</h1>
+            <p className="Dialog-message">우리 사이트 방문을 환영합니다.</p>
+        </FancyBorder>
+    )
+}
+```
+![Alt text](image.png)
 * 특정 컴포넌트가 하위 컴포넌트를 포함하는 형태의 합성 방법임.
 * 컴포넌트에 따라서는 어떤 자식 엘리먼트가 들어올 지 미리 예상 할 수 없는 경우가 있음.
 * 범용적인 '박스' 역할을 하는 Sidebar 혹은 Dialog와 같은 컴포넌트에서 특히 자주 볼 수 있음.
