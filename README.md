@@ -147,6 +147,11 @@ export default function WelcomeDialog() {
 * 이런 컴포넌트에서는 children prop을 사용하여 자식 엘리먼트를 출력에 그대로 전달하는 것이 좋음.
 * 이때 children prop은 컴포넌트의 props에 기본적으로 들어있는 children 속성을 사용함.
 
+### Specialization(특수화, 전문화)
+* Welcomedialog는 dialog의 특별한 케이스임.
+* 범용적인 개념을 구별이 되게 구체화하는 것을 특수화라고 함.
+* 객체지향 언어에서는 상속을 사용하여 특수화를 구현함.
+* 리액트에서는 합성을 사용하여 특수화를 구현함.
 # 5월 29일
 
 ### File input 태그
