@@ -7,6 +7,120 @@
 같은 부모 컴포넌트의 state를 자식 컴포넌트가 공유해서 사용하는 것
 ```
 * Shared state는 state의 공유를 의미
+### Shared state 적용하기
+```jsx
+return (
+    ...
+    // 변경 전 : <input value={temperature} onChange={handleChange} />
+    <input value={props.temperature} onChange={handleChange} />
+)
+```
+* 다음은 하위 컴포넌트의 state를 부모 컴포넌트로 올려서 shared state를 적용함.
+* 이것을 Lifting State up(State 끌어 올리기)라고 함
+* 이를 위해 먼저 TemperatureInput 컴포넌트에서 온도 값을 가져오는 부분을 다음과 같이 수정
+* 이렇게 수정하면 온도를 state에서 가져오지 않고 props를 통해 가져오게 됨.
+
+### 온도 변환 함수 작성
+* Calculator.jsx
+```jsx
+import { useState } from "react";
+import TemperatureInput from "./TemperatureInput";
+
+export default function Calculator() {
+    const [temperature, setTemperature] = useState()
+    const [scale, setScale] = useState('c')
+
+    const handleCelsiusChange = (temperature) => {
+        setTemperature(temperature)
+        setScale('c')
+    }
+
+    const handleFahrenheitChange = (temperature) => {
+        setTemperature(temperature)
+        setScale('f')
+    }
+
+    const celsius = (scale === 'f' ? tryConvert(temperature, toCelsius) : temperature)
+    const fahrenheit = (scale === 'c' ? tryConvert(temperature, toFahrenheit) : temperature)
+
+    return (
+        <>
+            <TemperatureInput scale='c' temperature={celsius} onTemperatureChange ={handleCelsiusChange}/>
+            <TemperatureInput scale='f' temperature={fahrenheit} onTemperatureChange ={handleFahrenheitChange}/>
+            <BoilingVerdict celsius={parseInt(celsius)} />
+        </>
+    )
+}
+
+function BoilingVerdict(props) {
+    if(props.celsius >= 100) {
+        return <p>물이 끓습니다.</p>
+    }
+    else {
+        return <p>물이 끓지 않습니다.</p>
+    }
+}
+
+function toCelsius(fahrenheit) {
+    return (
+        (fahrenheit-32) * 5/9
+    )
+}
+
+function toFahrenheit(celsius) {
+    return (
+        (celsius * 9/5) + 32
+    )
+}
+
+function tryConvert(temperature, convert) {
+    const input = parseFloat(temperature)
+    if(Number.isNaN(input)) {
+        return('')
+    }
+    const output = convert(input)
+    const rounded = Math.round(output * 1000) / 1000
+    return (
+        rounded.toString()
+    )
+}
+```
+* TemperatureInput.jsx
+```jsx
+export default function TemperatureInput(props) {
+    const scaleNames = {
+        c: '섭씨',
+        f: '화씨'
+    }
+    // const [temperature, setTemperature] = useState()
+    const handleChange = (e) => {
+        // setTemperature(e.target.value)
+        props.onTemperatureChange(e.target.value)
+    }
+    return (
+        <fieldset>
+            <legend>섭씨온도를 입력해주세요 :(단위 {scaleNames[props.scale]}) : </legend>
+            <input value={props.temperature} onChange={handleChange} />
+        </fieldset>
+    )
+}
+```
+* 정리
+    * 상위 컴포넌트인 Calculator에서 온도와 단위를 state로 갖고
+    * 두 개의 하위 컴포넌트는 각각 섭씨와 화씨로 변환된 온도와 단위, 그리고 온도를 업데이트 하기 위한 함수를 props로 갖고 있음.
+    * 이렇게 모든 컴포넌트가 state를 갖지 않고, 상위 컴포넌트로 올려서 공유하면 리액트를 더욱 간결하고 효율적으로 개발할 수 있음.
+
+### 합성
+```ruby
+합성(Composition)은 여러 개의 컴포넌트를 합쳐 새로운 컴포넌트를 만드는 것
+```
+* 조합 방법에 따라 합성의 사용 기법은 다음과 같이 나눌 수 있음.
+#### Containment(담다, 포함하다, 격리하다)
+* 특정 컴포넌트가 하위 컴포넌트를 포함하는 형태의 합성 방법임.
+* 컴포넌트에 따라서는 어떤 자식 엘리먼트가 들어올 지 미리 예상 할 수 없는 경우가 있음.
+* 범용적인 '박스' 역할을 하는 Sidebar 혹은 Dialog와 같은 컴포넌트에서 특히 자주 볼 수 있음.
+* 이런 컴포넌트에서는 children prop을 사용하여 자식 엘리먼트를 출력에 그대로 전달하는 것이 좋음.
+* 이때 children prop은 컴포넌트의 props에 기본적으로 들어있는 children 속성을 사용함.
 
 # 5월 29일
 
