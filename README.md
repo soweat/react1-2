@@ -7,6 +7,12 @@
 * 객체지향 언어에서는 상속을 사용하여 특수화를 구현함.
 * 리액트에서는 합성을 사용하여 특수화를 구현함.
 
+### Containment와 Specialization 같이 사용하기
+* Containment를 위해서 props.children을 사용하고, Specialization을 위해 직접 정의한 props를 사용하면 됨.
+* Dialog 컴포넌트는 이전의 것과 비슷한데 Containment를 위해 끝부분에 props.children을 추가함.
+* Dialog를 사용하는 SignUpDialog는 Specialization을 위해 props인 title, message에 값을 넣어주고 있고, 입력을 받기 위해 ```<input>```과 ```<button>```을 사용, 이 두개의 태그는 모두 props.children으로 전달되어 Dialog에 표시됨.
+* 이러한 형태로 Containment와 Specialization을 동시에 사용할 수 있음.
+
 # 6월 5일
 
 ### Shared State
