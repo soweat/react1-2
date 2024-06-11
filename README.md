@@ -73,6 +73,13 @@ const MyContext = React.createContext(기본값);
 * 파라메타에는 기본 값을 넣어주면 됨.
 * 하위 컴포넌트는 가장 가까운 상위 레벨의 Provider로부터 컨텍스트를 받게 되지만 만일 Provider를 찾을 수 없다면 설정한 기본 값을 사용하게 됨.
 
+### Context.Provider
+```js
+MyContext.Provider value={/* some value */}
+```
+* Context.Provider 컴포넌트로 하위 컴포넌트들을 감싸주면 모든 하위 컴포넌트들이 해당 컨텍스트의 데이터에 접근할 수 있게 됨.
+* Provider 컴포넌트에는 value라는 prop이 있고, 이것은 Provider 컴포넌트 하위에 있는 컴포넌트에게 전달됨.
+* 하위 컴포넌트를 consumer 컴포넌트라고 부름.
 # 6월 5일
 
 ### Shared State
