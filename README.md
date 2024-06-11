@@ -108,6 +108,21 @@ MyContext.displayName = "MyDisplayName";
 ### 여러 개의 컨텍스트 사용하기
 * 여러 개의 컨텍스트를 동시에 사용하려면 Context.Provider를 중첩해서 사용함.
 * 두 개 또는 그 이상의 컨텍스트 값이 자주 함께 사용될 경우 모든 값을 한 번에 제공해 주는 별도의 render prop 컴포넌트를 직접 만드는 것을 고려하는 것이 좋음.
+
+### useContext
+* 함수형 컴포넌트에서 컨텍스트를 사용하기 위해 컴포넌트를 매번 Consumer 컴포넌트로 감싸주는 것보다 더 좋은 방법이 있음.```Hook```
+* useContext()혹은 React.createContext() 함수 호출로 생성된 컨텍스트 객체를 인자로 받아 현재 컨텍스트의 값을 리턴함.
+```js
+function MyComponent(props){
+    const value = useContext(MyContext);
+
+    return (
+        ...
+    )
+}
+```
+* 가장 가까운 상위 Provider로 부터 컨텍스트의 값을 받아옴.
+* 만일 값이 변경되면 useContext() 훅을 사용하는 컨포넌트가 재 렌더링 됨.
 # 6월 5일
 
 ### Shared State
