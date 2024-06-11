@@ -80,7 +80,7 @@ return (
 )
 ```
 * 다음은 하위 컴포넌트의 state를 부모 컴포넌트로 올려서 shared state를 적용함.
-* 이것을 Lifting State up(State 끌어 올리기)라고 함
+* 이것을 Lifting State up(```State 끌어 올리기```)라고 함
 * 이를 위해 먼저 TemperatureInput 컴포넌트에서 온도 값을 가져오는 부분을 다음과 같이 수정
 * 이렇게 수정하면 온도를 state에서 가져오지 않고 props를 통해 가져오게 됨.
 
