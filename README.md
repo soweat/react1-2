@@ -13,6 +13,41 @@
 * Dialog를 사용하는 SignUpDialog는 Specialization을 위해 props인 title, message에 값을 넣어주고 있고, 입력을 받기 위해 ```<input>```과 ```<button>```을 사용, 이 두개의 태그는 모두 props.children으로 전달되어 Dialog에 표시됨.
 * 이러한 형태로 Containment와 Specialization을 동시에 사용할 수 있음.
 
+### 상속에 대해 알아보기
+* 합성과 대비되는 개념으로 상속(inheritance)이 있음.
+* 자식 클래스는 부모 클래스가 가진 변수나 함수 등의 속성을 모두 갖게 되는 개념
+* 리액트에서는 상속보다는 합성을 통해 새로운 컴포넌트를 생성
+## 실습
+* Card.jsx
+```js
+export default function Card(props) {
+    const {title, backgroundColor, children} = props
+
+    return (
+        <div style={{backgroundColor: backgroundColor || 'white' }}>
+            {title && <h1>{title}</h1>}
+            {children}
+        </div>
+    )
+}
+```
+* ProfileCard.jsx
+```js
+import Card from "./Card";
+
+export default function ProfileCard() {
+    return (
+        <Card title="Inje Lee" backgroundColor="#4ea04e" >
+        <p>안녕하세요</p>
+        <p>리액트로 개발합니다.</p>
+        </Card>
+    )
+}
+```
+* 결과창
+
+![Alt text](image-2.png)
+
 # 6월 5일
 
 ### Shared State
