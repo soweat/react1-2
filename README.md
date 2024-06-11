@@ -80,6 +80,34 @@ MyContext.Provider value={/* some value */}
 * Context.Provider 컴포넌트로 하위 컴포넌트들을 감싸주면 모든 하위 컴포넌트들이 해당 컨텍스트의 데이터에 접근할 수 있게 됨.
 * Provider 컴포넌트에는 value라는 prop이 있고, 이것은 Provider 컴포넌트 하위에 있는 컴포넌트에게 전달됨.
 * 하위 컴포넌트를 consumer 컴포넌트라고 부름.
+
+### Class.contextType
+* Provider 하위에 있는 클래스 컴포넌트에서 컨텍스트의 데이터에 접근하기 위해 사용함.
+* Class 컴포넌트는 더 이상 사용하지 않으므로 참고만 함.
+
+### Context.Consumer
+* 함수형 컴포넌트에서 Context.Consumer를 사용하여 컨텍스트를 구독할 수 있음.
+* 컴포넌트의 자식으로 함수가 올 수 있는데 이것을 function as a child라고 부름.
+* Context Consumer로 감싸주면 자식으로 들어간 함수가 현재 컨텍스트의 value를 받아서 리액트 노드로 리턴함.
+* 함수로 전달되는 value는 Provider의 value props와 동일함.
+
+### Context.displayName
+* 컨텍스트 객체는 displayName이라는 문자열 속성을 가짐.
+* 크롬의 리액트 개발자 도구에서는 컨텍스트의 Provider나 Consumer를 표시할 때 displayName을 함께 표시해 줌.
+```js
+const MyContext = React.createContext(/* some value */);
+MyContext.displayName = "MyDisplayName";
+
+// 개발자 도구에 "MyDisplayName.Provider"로 표시됨.
+<MyContext.Provider>
+
+// 개발자 도구에 "MyDisplayName.Consumer"로 표시됨.
+<MyContext.Consumer>
+```
+
+### 여러 개의 컨텍스트 사용하기
+* 여러 개의 컨텍스트를 동시에 사용하려면 Context.Provider를 중첩해서 사용함.
+* 두 개 또는 그 이상의 컨텍스트 값이 자주 함께 사용될 경우 모든 값을 한 번에 제공해 주는 별도의 render prop 컴포넌트를 직접 만드는 것을 고려하는 것이 좋음.
 # 6월 5일
 
 ### Shared State
