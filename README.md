@@ -99,10 +99,10 @@ const MyContext = React.createContext(/* some value */);
 MyContext.displayName = "MyDisplayName";
 
 // 개발자 도구에 "MyDisplayName.Provider"로 표시됨.
-<MyContext.Provider>
+<MyContext.Provider />
 
 // 개발자 도구에 "MyDisplayName.Consumer"로 표시됨.
-<MyContext.Consumer>
+<MyContext.Consumer />
 ```
 
 ### 여러 개의 컨텍스트 사용하기
