@@ -64,6 +64,15 @@ export default function ProfileCard() {
 * 하지만 무조건 컨텍스트를 사용하는 것이 좋은 것은 아님. ```컴포넌트와 컨텍스트가 연동되면 재사용성이 떨어지기 때문```
 * 다른 데벨의 많은 컴포넌트가 데이터를 필요로 하는 경우가 아니면 props를 통해 데이터를 전달하는 컴포넌트 합성 방법이 더 적합함.
 
+## 컨텍스트 API
+### React.createContext
+```js
+const MyContext = React.createContext(기본값);
+```
+* Context를 생성하기 위한 함수
+* 파라메타에는 기본 값을 넣어주면 됨.
+* 하위 컴포넌트는 가장 가까운 상위 레벨의 Provider로부터 컨텍스트를 받게 되지만 만일 Provider를 찾을 수 없다면 설정한 기본 값을 사용하게 됨.
+
 # 6월 5일
 
 ### Shared State
