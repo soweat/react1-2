@@ -1,5 +1,72 @@
 # 202030215 서민석
 
+# 6월 12일
+## CSS
+```ruby
+CSS란 Cascading Style Sheets의 약자로 스타일링을 위한 언어
+```
+* Cascading이란 계단식이라는 뜻으로 한 엘리먼트에 여러 스타일이 적용될 경우 스타일간의 충돌을 막기 위해 계단식으로 스타일을 적용시키는 규칙
+* 하나의 스타일이 여러 개의 엘리먼트에 적용될 수도 있고, 하나의 엘리먼트에도 여러 개의 스타일이 적용될 수도 있음.
+* 엘리먼트에 스타일이 적용되는 규칙을 ```selector(선택자)```라고 함. CSS는 이 선택자와 스타일로 이루어 짐.
+* 선택자는 HTML 엘리먼트를 직접 넣어도 되고, 엘리먼트의 조합 혹은 class의 형태로 작성 가능.
+* 스타일은 ```property(속성)```과 ```key value(키 값)```로 이루어 지며, 이들은 콜론(:)으로 구분하고, 각 스타일은 세미콜론(;)으로 구분함.
+
+### Asterisk(*)
+* ex
+```js
+* {
+    font-size : 20px;
+    color : blue;
+}
+```
+### 그룹 선택자
+* ex
+```js
+h1, h2, p {
+    color : black;
+    text-align: center;
+}
+```
+### 상태 선택자
+* ex
+```js
+button:hover {
+    font-weight: bold;
+}
+a:active {
+    color: red;
+}
+input:focus {
+    color: #000000;
+}
+```
+
+### 레이아웃과 관련된 속성
+```js
+div {
+    display: none | block | inline | flex;
+}
+```
+* 화면에 엘리먼트를 어떻게 배치할 것인지를 정의함.
+* 가장 중요한 속성은 display임.
+* 모든 엘리먼트는 기본 display 속성을 갖고 있지만 이 기본값을 변경해 줄 수 있음.
+
+### visibility
+```js
+div {
+    visibility: visible | hidden;
+}
+```
+* visibility 속성은 엘리먼트와 가시성을 정의
+### display:none과 visibility:hidden의 차이
+* display: none은 엘리먼트의 영역이 보이지 않고, visibility:hidden는 차지하는 영역이 보임.
+
+## styled-components
+```ruby
+CSS 문법을 그대로 사용하면서 결과물을 스타일링된 컴포넌트 형태로 만들어 주는 오픈소스 라이브러리임.
+```
+* 컴포넌트의 개념을 사용하고 있어 리액트 개발에 많이 사용됨
+
 # 6월 11일
 ### Specialization(특수화, 전문화)
 * Welcomedialog는 dialog의 특별한 케이스임.
