@@ -12,7 +12,7 @@ CSS란 Cascading Style Sheets의 약자로 스타일링을 위한 언어
 * 스타일은 ```property(속성)```과 ```key value(키 값)```로 이루어 지며, 이들은 콜론(:)으로 구분하고, 각 스타일은 세미콜론(;)으로 구분함.
 
 ### Asterisk(*)
-* ex
+* 예시
 ```js
 * {
     font-size : 20px;
@@ -20,7 +20,7 @@ CSS란 Cascading Style Sheets의 약자로 스타일링을 위한 언어
 }
 ```
 ### 그룹 선택자
-* ex
+* 예시
 ```js
 h1, h2, p {
     color : black;
@@ -28,7 +28,7 @@ h1, h2, p {
 }
 ```
 ### 상태 선택자
-* ex
+* 예시
 ```js
 button:hover {
     font-weight: bold;
