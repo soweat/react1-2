@@ -67,6 +67,33 @@ CSS 문법을 그대로 사용하면서 결과물을 스타일링된 컴포넌�
 ```
 * 컴포넌트의 개념을 사용하고 있어 리액트 개발에 많이 사용됨
 
+## 실습
+* MainPage.jsx
+```js
+import styled from "styled-components"
+
+const Wrapper = styled.div`
+  padding: 1em;
+  background: gray;`
+const Title = styled.h1`
+  font-size: 1.5em;
+  color: white;
+  text-align: center;`
+
+export  default function MainPage() {
+  return (
+    <Wrapper>
+      <Title>
+        안녕. 리액트
+      </Title>
+    </Wrapper>
+  )
+}
+```
+* 결과창
+
+![Alt text](image-3.png)
+
 # 6월 11일
 ### Specialization(특수화, 전문화)
 * Welcomedialog는 dialog의 특별한 케이스임.
