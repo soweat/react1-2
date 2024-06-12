@@ -80,19 +80,31 @@ const Title = styled.h1`
   color: white;
   text-align: center;`
 
+const Button = styled.button`
+  color: ${props => props.dark ? 'white' : 'dark'};
+  background : ${props => props.dark ? 'black' : 'white'};
+  border: 1px solid black`
+
+const RoundButton = styled(Button)`
+  border-radius: 16px;`
+
 export  default function MainPage() {
   return (
     <Wrapper>
       <Title>
         안녕. 리액트
       </Title>
+      <br/>
+      <Button>Normal</Button>&nbsp;
+      <Button dark>Dark</Button>&nbsp;
+      <RoundButton>Round Button</RoundButton>
     </Wrapper>
   )
 }
 ```
 * 결과창
 
-![Alt text](image-3.png)
+![Alt text](image-5.png)
 
 # 6월 11일
 ### Specialization(특수화, 전문화)
